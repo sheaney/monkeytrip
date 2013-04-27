@@ -8,6 +8,24 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
- *= require_tree .
+ *= require bootstrap.min.css
  */
+
+// Modals
+
+#myModal {
+  display: none;
+
+  .monkey-fb-images img {
+    width: 150px;
+    height: 120px;
+  }
+
+  .monkey-friends img {
+    width: 70px;
+    float: right;
+  }
+}
+
+
+// End of modal
