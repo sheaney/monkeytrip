@@ -4,7 +4,6 @@ var initZoom = 4;
 var map;
 
 var locations = [
-                 new google.maps.LatLng(20.6596492, -103.34962510000003),
                  new google.maps.LatLng(17.987557, -92.929147),
                  new google.maps.LatLng(19.4326077, -99.13320799999997),
                  new google.maps.LatLng(21.158964, -86.84593699999999),
@@ -26,9 +25,9 @@ var locations = [
                  new google.maps.LatLng(41.8781136, -87.62979819999998)
                 ];
 var places = [
-              "guadalajara, mexico", "villahermosa, mexico", "mexico city, mexico", "cancun, mexico",
+              "villahermosa, mexico", "mexico city, mexico", "cancun, mexico",
               "cabo san lucas, mexico", "monterrey, mexico", "zacatecas, mexico", "puebla, mexico",
-              "tuxtla gutierrez, mexico", "rosita,mexico", "iztapa zihuatanejo, mexico", "merida, mexico",
+              "tuxtla gutierrez, mexico", "rosita,mexico", "ixtapa zihuatanejo, mexico", "merida, mexico",
               "boston, united states", "amherst, united states", "new york, united states", "miami, united states",
               "austin, united states", "omaha, united states","dallas, united states", "chicago, united states"
              ];
@@ -116,6 +115,18 @@ function initialize() {
 	  });
 	  showModal(marker, places[i]);
   }
+  
+  var marker = new google.maps.Marker({
+	  position: new google.maps.LatLng(20.6596492, -103.34962510000003),
+	  map: map,
+	  title: "guadalajara, mexico",
+	  icon: pastPos
+  });
+  google.maps.event.addListener(marker, 'click', function() {
+	  $('#modalGuadalajara').modal({
+          keyboard: true
+      });
+  });
 
   new google.maps.places.Autocomplete(document.getElementById('place'), { types: ['(cities)'] });
 }
