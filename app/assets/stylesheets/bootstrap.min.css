@@ -32,3 +32,12 @@
 .modal-footer .btn+.btn{margin-left:5px;margin-bottom:0;}
 .modal-footer .btn-group .btn+.btn{margin-left:-1px;}
 .modal-footer .btn-block+.btn-block{margin-left:0;}
+.imgClass { 
+    background-image: url(/assets/Search.png);
+    background-position:  0px 0px;
+    background-repeat: no-repeat;
+    width: 186px;
+    height: 53px;
+    border: 0px;
+
+}

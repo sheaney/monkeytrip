@@ -23,6 +23,9 @@ var austinPos = new google.maps.LatLng(30.267153, -97.74306079999997);
 var omahaPos = new google.maps.LatLng(41.2523634, -95.99798829999997);
 var dallasPos = new google.maps.LatLng(32.7801399, -96.80045109999998);
 var chicagoPos = new google.maps.LatLng(41.8781136, -87.62979819999998);
+var futurePos = 'assets/red_pin.png';
+var currentPos = 'assets/gray_pin.png';
+var pastPos = 'assets/orange_pin.png';
 
 function initialize() {
   var styles = [
@@ -90,102 +93,122 @@ function initialize() {
   new google.maps.Marker({
     position: guadalajaraPos,
     map: map,
-    title: "Guadalajara"
+    title: "Guadalajara",
+    icon: pastPos
   });
   new google.maps.Marker({
     position: villahermosaPos,
     map: map,
-    title: "Villahermosa"
+    title: "Villahermosa",
+    icon: pastPos
   });
   new google.maps.Marker({
     position: cancunPos,
     map: map,
-    title: "Cancun"
+    title: "Cancun",
+    icon: pastPos
   });
   new google.maps.Marker({
     position: monterreyPos,
     map: map,
-    title: "Monterrey"
+    title: "Monterrey",
+    icon: currentPos
   });
   new google.maps.Marker({
     position: caboPos,
     map: map,
-    title: "Cabo San Lucas"
+    title: "Cabo San Lucas",
+    icon: pastPos
   });
   new google.maps.Marker({
     position: tuxtlaPos,
     map: map,
-    title: "Tuxtla Gutiérrez"
+    title: "Tuxtla Gutiérrez",
+    icon: pastPos
   });
   new google.maps.Marker({
     position: ixtapaPos,
     map: map,
-    title: "Ixtapa Zihuatanejo"
+    title: "Ixtapa Zihuatanejo",
+    icon: pastPos
   });
   new google.maps.Marker({
     position: mexicoCityPos,
     map: map,
-    title: "Mexico City"
+    title: "Mexico City",
+    icon: pastPos
   });
   new google.maps.Marker({
     position: pueblaPos,
     map: map,
-    title: "Puebla"
+    title: "Puebla",
+    icon: pastPos
   });
   new google.maps.Marker({
     position: rositaPos,
     map: map,
-    title: "Rosita"
+    title: "Rosita",
+    icon: pastPos
   });
   var bostonMarker = new google.maps.Marker({
     position: bostonPos,
     map: map,
-    title: "Boston"
+    title: "Boston",
+    icon: pastPos
   });
   new google.maps.Marker({
     position: nyPos,
     map: map,
-    title: "New York"
+    title: "New York",
+    icon: pastPos
   });
   new google.maps.Marker({
     position: austinPos,
     map: map,
-    title: "Austin"
+    title: "Austin",
+    icon: pastPos
   });
   new google.maps.Marker({
     position: omahaPos,
     map: map,
-    title: "Omaha"
+    title: "Omaha",
+    icon: pastPos
   });
   new google.maps.Marker({
     position: dallasPos,
     map: map,
-    title: "Dallas"
+    title: "Dallas",
+    icon: pastPos
   });
   new google.maps.Marker({
     position: miamiPos,
     map: map,
-    title: "Miami"
+    title: "Miami",
+    icon: pastPos
   });
   new google.maps.Marker({
     position: amherstPos,
     map: map,
-    title: "Amherst"
+    title: "Amherst",
+    icon: pastPos
   });
   new google.maps.Marker({
     position: zacatecasPos,
     map: map,
-    title: "Zacatecas"
+    title: "Zacatecas",
+    icon: pastPos
   });
   new google.maps.Marker({
     position: chicagoPos,
     map: map,
-    title: "Chicago"
+    title: "Chicago",
+    icon: pastPos
   });
   new google.maps.Marker({
     position: meridaPos,
     map: map,
-    title: "Mérida"
+    title: "Mérida",
+    icon: pastPos
   });
 
   google.maps.event.addListener(bostonMarker, 'click', function() {
@@ -201,19 +224,20 @@ function placeMarker(e) {
 	var place = document.getElementById("place").value;
 	  if (e.keyCode == 13 || e.type == 'click' && place != "") {
 	    var geocoder = new google.maps.Geocoder();
-
-	    geocoder.geocode({'address': place}, function(results, status) {
-	      if (status == google.maps.GeocoderStatus.OK) {
-	        new google.maps.Marker({
-	          position: new google.maps.LatLng(
-	            results[0].geometry.location.lat(), results[0].geometry.location.lng()),
-	            map: map,
-	            title: place,
-	            animation: google.maps.Animation.DROP
-	        });
-	      }
-	    });
-	  }
+      
+    geocoder.geocode({'address': place}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        new google.maps.Marker({
+          position: new google.maps.LatLng(
+            results[0].geometry.location.lat(), results[0].geometry.location.lng()),
+            map: map,
+            title: place,
+            animation: google.maps.Animation.DROP,
+            icon: futurePos
+        });
+      }
+    });
+  }
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
