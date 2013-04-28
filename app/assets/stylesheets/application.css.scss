@@ -62,14 +62,19 @@ section {
 
   .monkey-fb-images img {
     width: 185px;
-    height: 140px;
-    margin-left: 1px;
+    height: 141px;
     float: left;
+  }
+  
+  #secondImage {
+    width: 186px;
+    margin-left: 2px;
+    margin-right: 2px;
   }
 
   aside {
     float: left;
-    width: 55%;
+    width: 50%;
     margin-left: 9px;
     padding: 5px;
     margin: 10px;
@@ -109,13 +114,16 @@ section {
 
   article {
     float: right;
-    padding-top: 50px;
+    margin-right: 10px;
+    margin-top: 20px;
+    
+    .picture-group {
+      margin-bottom: 10px;
+    }
 
     .monkey-friends img {
-      margin: 3px;
-      width: 60px;
-      height: 60px;
-      float: right;
+      width: 115px;
+      height: 76px;
     }
   }
 }
