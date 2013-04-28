@@ -16,8 +16,35 @@
   </div>
   <div id="map"></div>
   <div class="footer-email-bar">
-    <input type="text" class="span2" placeholder="juan@ejemplo.com">
-    <button type="submit" class="btn-success">Email</button>
+    <label for="email">Sign up here!</label>
+    <input id="email" type="text" class="span2" placeholder="juan@ejemplo.com">
+    <button id="submit-email" type="submit" class="btn-success">Email</button>
   </div>
   <%= render partial: "/layouts/modal" %>
 </section>
+<script>
+$(document).ready(function(){
+  $('#submit-email').on('click', submitEmail);
+});
+
+function submitEmail() {
+  var email = $('#email').val();
+  var regex_email = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
+  if (regex_email.test(email)) {
+    $.ajax('/leads', {
+      type: 'POST',
+      data: {
+        email: email
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+        $('#email').addClass('email-error');
+      },
+      success: function(data, textStatus, jqXHR) {
+        console.log("successful");
+      }
+    });
+  } else {
+    $('#email').addClass('email-error');
+  }
+}
+</script>
