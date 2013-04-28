@@ -2922,7 +2922,7 @@ input[type="submit"].btn.btn-mini {
 .navbar-inner3 {
   position: relative;
   min-height: 40px;
-  padding-left: 10px;
+  /*padding-left: 10px;*/
   padding-right: 0px;
   background-color: #780000 ;
   background-repeat: repeat-x;

@@ -221,10 +221,10 @@ function initialize() {
 }
 
 function placeMarker(e) {
-  var place = document.getElementById("place").value;
-  if (e.keyCode == 13 || e.type == 'click' && place != "") {
-    var geocoder = new google.maps.Geocoder();
-
+	var place = document.getElementById("place").value;
+	  if (e.keyCode == 13 || e.type == 'click' && place != "") {
+	    var geocoder = new google.maps.Geocoder();
+      
     geocoder.geocode({'address': place}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
         new google.maps.Marker({

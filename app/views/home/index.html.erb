@@ -1,39 +1,50 @@
-<div class="brand-bar">
-  <div class="navbar">
-    <div class="navbar-inner">
-      <div class="brand-bar">
-        <p class="brand" href="#">monkeytrip</p>
+<section id="container">
+  <div class="brand-bar">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="brand-bar">
+          <p class="brand" href="#">monkeytrip</p>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<div class="style-bar">
-  <div class="search-location">
-    <input id="place" type="textbox" class="span2" onkeypress="placeMarker(event)" placeholder="City"></input>
+  <div class="style-bar">
+    <div class="search-location">
+      <input id="place" type="textbox" class="span2" onkeypress="placeMarker(event)" placeholder="City">
       <input type="submit" value="" class="imgClass" onclick="placeMarker(event)"/>
+    </div>
   </div>
-</div>
-
-<div class="navbar">
-  <%#<div class="navbar-inner">%>
-    <%#<div class="brand-bar">%>
-      <%#<p class="brand" href="#">monkeytrip</p>%>
-    <%#</div>%>
-    <%#<div class="style-bar">%>
-      <%#<div class="search-location">%>
-        <%#<input id="place" type="textbox" class="span2" onkeypress="placeMarker(event)" placeholder="City">%>
-        <%#<button type="submit" class="btn-success" onclick="placeMarker(event)">Buscar</button>%>
-      <%#</div>%>
-    <%#</div>%>
-  <%#</div>%>
-  <div class="navbar-inner3 navbar-fixed-bottom">
-    <form class="navbar-form pull-left">
-      <input type="text" class="span2" placeholder="juan@ejemplo.com">
-      <button type="submit" class="btn-success">Email</button>
-    </form>
-  </div>
-</div>
-<section id="container">
   <div id="map"></div>
+  <div class="footer-email-bar">
+    <label for="email">Sign up here!</label>
+    <input id="email" type="text" class="span2" placeholder="juan@ejemplo.com">
+    <button id="submit-email" type="submit" class="btn-success">Email</button>
+  </div>
   <%= render partial: "/layouts/modal" %>
 </section>
+<script>
+$(document).ready(function(){
+  $('#submit-email').on('click', submitEmail);
+});
+
+function submitEmail() {
+  var email = $('#email').val();
+  var regex_email = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
+  if (regex_email.test(email)) {
+    $.ajax('/leads', {
+      type: 'POST',
+      data: {
+        email: email
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+        $('#email').addClass('email-error');
+      },
+      success: function(data, textStatus, jqXHR) {
+        console.log("successful");
+      }
+    });
+  } else {
+    $('#email').addClass('email-error');
+  }
+}
+</script>
