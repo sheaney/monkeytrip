@@ -166,6 +166,13 @@ section {
   .search-location {
     padding-top: 8px;
 
+    .imgClass { 
+        background-image: url(/assets/airplane.png);
+        background-position:  0px 0px;
+        background-repeat: no-repeat;
+        border: 0px;
+    }
+
     input {
       width: 350px;
       height: 50px;

@@ -10,7 +10,7 @@
   </div>
   <div class="style-bar">
     <div class="search-location">
-      <input id="place" type="textbox" class="span2" onkeypress="placeMarker(event)" placeholder="City">
+      <input id="place" type="textbox" class="span2" onkeypress="placeMarker(event)" placeholder="Enter a travel destination">
       <input type="submit" value="" class="imgClass" onclick="placeMarker(event)"/>
     </div>
   </div>
@@ -24,6 +24,10 @@
 <script>
 $(document).ready(function(){
   $('#submit-email').on('click', submitEmail);
+  $('input .imageClass').on('mouseover', function(e) {
+    console.log("Testing");
+  });
+
 });
 
 function submitEmail() {
