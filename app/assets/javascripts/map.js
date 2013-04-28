@@ -197,10 +197,9 @@ function initialize() {
   new google.maps.places.Autocomplete(document.getElementById('place'), { types: ['(cities)'] });
 }
 
-function placeMarker(e) {
+function placeMarker() {
   var place = document.getElementById("place").value;
-  if(e.keyCode == 13 && place != "") {
-    var geocoder = new google.maps.Geocoder();
+  var geocoder = new google.maps.Geocoder();
 
     geocoder.geocode({'address': place}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
@@ -213,7 +212,6 @@ function placeMarker(e) {
         });
       }
     });
-  }
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
