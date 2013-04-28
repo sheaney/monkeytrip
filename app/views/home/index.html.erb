@@ -1,7 +1,6 @@
 <section id="container">
-  <div class="frame">
-    <button type="button" id="test">Launch modal</button>
-  </div>
+  <input id="place" type="textbox" onkeypress="placeMarker(event)" placeholder="City">
+  <div id="map"></div>
   <%= render partial: "/layouts/modal" %>
 </section>
 <script>
