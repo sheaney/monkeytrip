@@ -82,15 +82,18 @@ function initialize() {
     "elementType": "labels",
     "stylers": [ { "visibility": "off" } ]
   }, {
-    "featureType": "water",
-    "elementType": "geometry",
-    "stylers": [ { "lightness": 30 } ] }
+	  "featureType": "landscape.natural.landcover", "stylers": [ { "gamma": 0.5 } ]
+  }, {
+	  "featureType": "water", "stylers": [ { "gamma": 0.8 } ]
+  }, { "featureType": "administrative.province", "elementType": "geometry", "stylers": [ { "gamma": 0.4 } ] }
   ];
   var styledMap = new google.maps.StyledMapType(styles, {name: "Styled Map"});
 
   map = new google.maps.Map(document.getElementById("map"), {
     center: new google.maps.LatLng(initLat, initLng),
     zoom: initZoom,
+    panControl: false,
+    mapTypeControl: false,
     mapTypeControlOptions: {
       mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
     }
