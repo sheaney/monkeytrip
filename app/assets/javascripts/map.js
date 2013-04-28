@@ -23,9 +23,9 @@ var austinPos = new google.maps.LatLng(30.267153, -97.74306079999997);
 var omahaPos = new google.maps.LatLng(41.2523634, -95.99798829999997);
 var dallasPos = new google.maps.LatLng(32.7801399, -96.80045109999998);
 var chicagoPos = new google.maps.LatLng(41.8781136, -87.62979819999998);
-var futurePos = 'pin_green.png';
-var currentPos = 'pin_black.png';
-var pastPos = 'pin_teal.png';
+var futurePos = 'assets/red_pin.png';
+var currentPos = 'assets/gray_pin.png';
+var pastPos = 'assets/orange_pin.png';
 
 function initialize() {
   var styles = [
