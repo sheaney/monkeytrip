@@ -10,21 +10,24 @@
   </div>
   <div class="style-bar">
     <div class="search-location">
-      <input id="place" type="textbox" class="span2" onkeypress="placeMarker(event)" placeholder="City">
+      <input id="place" type="textbox" class="span2" onkeypress="placeMarker(event)" placeholder="Enter a travel destination">
       <input type="submit" value="" class="imgClass" onclick="placeMarker(event)"/>
     </div>
   </div>
   <div id="map"></div>
   <div class="footer-email-bar">
-    <label for="email">Sign up here!</label>
     <input id="email" type="text" class="span2" placeholder="juan@ejemplo.com">
-    <button id="submit-email" type="submit" class="btn-success">Email</button>
+    <button id="submit-email" type="submit" class="btn-success">Sign Up</button>
   </div>
   <%= render partial: "/layouts/modal" %>
 </section>
 <script>
 $(document).ready(function(){
   $('#submit-email').on('click', submitEmail);
+  $('input .imageClass').on('mouseover', function(e) {
+    console.log("Testing");
+  });
+
 });
 
 function submitEmail() {
