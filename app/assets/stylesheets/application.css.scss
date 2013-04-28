@@ -233,8 +233,40 @@ section {
   bottom: 0px;
 
   input {
-    margin-top: 8px;
+    height: 30px;
+    width: 200px;
     margin-left: 30px;
+    font-size: 20px;
+    color: black;
+  }
+
+  ::-webkit-input-placeholder {
+    font-size: 16px;
+    font-family: Gill Sans, Verdana;
+    color: gray;
+  }
+
+  :-moz-placeholder { /* Firefox 18- */
+    font-size: 16px;
+    font-family: Gill Sans, Verdana;
+    color: gray;
+  }
+
+  ::-moz-placeholder { /* Firefox 19+ */
+    font-size: 16px;
+    font-family: Gill Sans, Verdana;
+    color: gray;
+  }
+
+  :-ms-input-placeholder {
+    font-size: 16px;
+    font-family: Gill Sans, Verdana;
+    color: gray;
+  }
+
+  #submit-email {
+    height: 34px;
+    margin-bottom: 8px;
   }
 }
 
