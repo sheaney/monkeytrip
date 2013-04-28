@@ -2,11 +2,9 @@
   <div class="frame">
     <button type="button" id="test">Launch modal</button>
   </div>
-	<input id="place" type="textbox" onkeypress="placeMarker(event)" placeholder="City">
-	<div id="map"></div>
+  <%= render partial: "/layouts/media" %>
   <%= render partial: "/layouts/modal" %>
 </section>
-
 <script>
   $(document).ready(function(){
     $('#test').on('click', function(event){
