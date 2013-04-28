@@ -189,7 +189,9 @@ function initialize() {
   });
 
   google.maps.event.addListener(bostonMarker, 'click', function() {
-    alert("Hola, Heaney");
+	  $('#myModal').modal({
+          keyboard: true
+      })
   });
 
   new google.maps.places.Autocomplete(document.getElementById('place'), { types: ['(cities)'] });
