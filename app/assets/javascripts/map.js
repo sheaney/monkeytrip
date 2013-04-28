@@ -197,21 +197,23 @@ function initialize() {
   new google.maps.places.Autocomplete(document.getElementById('place'), { types: ['(cities)'] });
 }
 
-function placeMarker() {
-  var place = document.getElementById("place").value;
-  var geocoder = new google.maps.Geocoder();
+function placeMarker(e) {
+	var place = document.getElementById("place").value;
+	  if (e.keyCode == 13 || e.type == 'click' && place != "") {
+	    var geocoder = new google.maps.Geocoder();
 
-    geocoder.geocode({'address': place}, function(results, status) {
-      if (status == google.maps.GeocoderStatus.OK) {
-        new google.maps.Marker({
-          position: new google.maps.LatLng(
-            results[0].geometry.location.lat(), results[0].geometry.location.lng()),
-            map: map,
-            title: place,
-            animation: google.maps.Animation.DROP
-        });
-      }
-    });
+	    geocoder.geocode({'address': place}, function(results, status) {
+	      if (status == google.maps.GeocoderStatus.OK) {
+	        new google.maps.Marker({
+	          position: new google.maps.LatLng(
+	            results[0].geometry.location.lat(), results[0].geometry.location.lng()),
+	            map: map,
+	            title: place,
+	            animation: google.maps.Animation.DROP
+	        });
+	      }
+	    });
+	  }
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);

@@ -1,41 +1,22 @@
- <div class="navbar">
-      <div class="navbar-inner">
-        <p class="brand" href="#">monkeytrip</p>       
+<div class="navbar">
+  <div class="navbar-inner">
+  <%#<div class="navbar-inner navbar-fixed-top">%>
+    <p class="brand" href="#">monkeytrip</p>
+    <div class="style-bar">
+      <div class="search-location">
+        <input id="place" type="textbox" class="span2" onkeypress="placeMarker(event)" placeholder="City">
+        <button type="submit" class="btn-success" onclick="placeMarker(event)">Buscar</button>
       </div>
     </div>
-    <div class="navbar">
-      <div class="navbar-inner2">
-      <form class="navbar-form pull-left">
-        <input type="text" class="span2">
-        <button type="submit" class="btn btn-primary">Trip!</button>
-      </form>
-    </div>
-    </div>
-    <div class="navbar">
-      <div class="navbar-inner3">
-      <form class="navbar-form pull-left">
-        <input type="text" class="span2">
-        <button type="submit" class="btn-success">Email</button>
-      </form>
-    </div>
-    </div>
+  </div>
+  <div class="navbar-inner3 navbar-fixed-bottom">
+    <form class="navbar-form pull-left">
+      <input type="text" class="span2">
+      <button type="submit" class="btn-success" placeholder="juan@ejemplo.com">Email</button>
+    </form>
+  </div>
+</div>
 <section id="container">
-  <input id="place" type="textbox" onkeypress="placeMarker(event)" placeholder="City">
   <div id="map"></div>
- 
-
-
   <%= render partial: "/layouts/modal" %>
-
 </section>
-
-<script>
-  $(document).ready(function(){
-    $('#test').on('click', function(event){
-      $('#myModal').modal({
-          keyboard: true
-      })
-    });
-  });
-</script>
-
