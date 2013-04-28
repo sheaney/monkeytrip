@@ -17,14 +17,31 @@
   display: none;
 
   .monkey-fb-images img {
+    margin: 9px;
     width: 150px;
     height: 120px;
   }
 
-  .monkey-friends img {
-    width: 70px;
-    float: right;
+  aside {
+    float: left;
+    
+    div {
+
+    }
   }
+
+  article {
+    float: right;
+    padding-top: 50px;
+
+    .monkey-friends img {
+      margin: 3px;
+      width: 80px;
+      height: 60px;
+      float: right;
+    }
+  }
+
 }
 
 
