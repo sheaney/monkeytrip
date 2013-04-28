@@ -3,16 +3,18 @@
     <div class="navbar">
       <div class="navbar-inner">
         <div class="brand-bar">
-          <p class="brand" href="#">monkeytrip</p>
+          <a href="#"><p class="brand" href="#">monkeytrip</p></a>
         </div>
       </div>
     </div>
   </div>
   <div class="style-bar">
     <div class="search-location">
-      <input id="place" type="textbox" class="span2" onkeypress="placeMarker(event)" placeholder="What's your next hop?"/>
+      <input id="place" type="textbox" class="span2" onkeypress="placeMarker(event)" placeholder="Enter your next hop">
       <input type="submit" value="" class="imgClass" onclick="placeMarker(event)"/>
     </div>
+  </div>
+  <div class="questions">
   </div>
   <div id="map"></div>
   <div class="footer-email-bar">
@@ -24,10 +26,6 @@
 <script>
 $(document).ready(function(){
   $('#submit-email').on('click', submitEmail);
-  $('input .imageClass').on('mouseover', function(e) {
-    console.log("Testing");
-  });
-
 });
 
 function submitEmail() {
@@ -43,7 +41,8 @@ function submitEmail() {
         $('#email').addClass('email-error');
       },
       success: function(data, textStatus, jqXHR) {
-        console.log("successful");
+        $('#email').addClass('email-success');
+        $('#submit-email').hide();
       }
     });
   } else {
