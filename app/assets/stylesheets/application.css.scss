@@ -1,61 +1,16 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
- *
- *= require bootstrap.min.css
- *= require button-navbar.css
- */
-
-// Modals
-
-html {
-  height: 100%;
-}
-
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-section {
-  height: 100%;
-}
-
-#map {
-  height: 89%;
-  
-  img{
-    max-width:none
-   }
-}
-
-.modal-body {
-  padding: 0px;
-}
-
-#myModal {
-  display: none;
-  background-color: #E0E0E0;
-  /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
- *
- *= require bootstrap.min.css
- *= require button-navbar.css
- */
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the top of the
+* compiled file, but it's generally better to create a new file per style scope.
+*
+*= require bootstrap.min.css
+*= require button-navbar.css
+*/
 
 // Modals
 
@@ -98,7 +53,7 @@ section {
     h3 {
       font-size: 35px;
       font-weight: 400;
-      font-family: Arial; 
+      font-family: Arial;
       letter-spacing: 2px;
       color: #F0F0F0;
       text-shadow: 0 1px 0 #ffffff;
@@ -109,11 +64,10 @@ section {
     width: 185px;
     height: 141px;
     float: left;
+    
   }
   
-  #secondImage {
-    width: 186px;
-    margin-left: 2px;
+  .border-image {
     margin-right: 2px;
   }
 
@@ -149,6 +103,8 @@ section {
         border-top: 1px solid #B4B4B4;
         .media-object {
           padding: 5px;
+          width: 43px;
+          height: 43px;
         }
         .media-body {
           border: none;
@@ -158,196 +114,24 @@ section {
   }
 
   article {
-    float: right;
-    margin-right: 10px;
-    margin-top: 20px;
+    margin-top: 151px;
+    overflow: hidden;
     
-    .picture-group {
-      margin-bottom: 10px;
+    p {
+      margin-top: 17px;
+      line-height: 5px;
+      font-weight: bold;
+      font-size: 16px;
+    }
+    
+    .monkey-friends {
+      border-top: 1px solid #B4B4B4;
     }
 
     .monkey-friends img {
-      width: 115px;
-      height: 76px;
-    }
-  }
-}
-
-// End of modal
-
-// Map
-
-.brand-bar {
-   position: absolute;
-   width: 20%;
-
-   .navbar-inner {
-     min-height: 72px;
-   }
-}
-
-.style-bar {
-   margin-left: 20%;
-   width: 80%;
-   height: 11%;
-   background-color: black;
-
-  .search-location {
-    padding-top: 8px;
-
-    input {
-      width: 350px;
-      height: 50px;
-      color: white;
-      font-size: 25px;
-      padding-left: 5px;
-      background-color: black;
-      border: none;
-    }
-
-    input:focus {
-      outline: none;
-    }
-
-    ::-webkit-input-placeholder {
-      font-size: 20px;
-      padding-left: 10px;
-      padding-top: 5px;
-      font-family: Gill Sans, Verdana;
-      text-transform: uppercase;
-      color: gray;
-    }
-
-    :-moz-placeholder { /* Firefox 18- */
-      font-size: 20px;
-      padding-left: 10px;
-      padding-top: 5px;
-      font-family: Gill Sans, Verdana;
-      text-transform: uppercase;
-      color: gray;
-    }
-
-    ::-moz-placeholder {  /* Firefox 19+ */
-      font-size: 20px;
-      padding-left: 10px;
-      padding-top: 5px;
-      font-family: Gill Sans, Verdana;
-      text-transform: uppercase;
-      color: gray;
-    }
-
-    :-ms-input-placeholder {  
-      font-size: 20px;
-      padding-left: 10px;
-      padding-top: 5px;
-      font-family: Gill Sans, Verdana;
-      text-transform: uppercase;
-      color: gray;
-    }
-  }
-
-}
-
-.footer-email-bar {
-  position: fixed;
-  width: 100%;
-  height: 70px;
-  bottom: 0px;
-
-  label {
-    font-size: 17px;
-    padding-left: 14px;
-    margin-bottom: 0px;
-  }
-
-  input {
-    margin-top: 8px;
-    margin-left: 10px;
-  }
-}
-
-// End of map
-
-  .modal-header {
-    background-color: #780000;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border-top-left-radius:5px;
-    border-top-right-radius:5px;
-    h3 {
-      font-size: 35px;
-      font-weight: 400;
-      font-family: Arial; 
-      letter-spacing: 2px;
-      color: #F0F0F0;
-      text-shadow: 0 1px 0 #ffffff;
-    }
-  }
-
-  .monkey-fb-images img {
-    width: 185px;
-    height: 141px;
-    float: left;
-  }
-  
-  #secondImage {
-    width: 186px;
-    margin-left: 2px;
-    margin-right: 2px;
-  }
-
-  aside {
-    float: left;
-    width: 50%;
-    margin-left: 9px;
-    padding: 5px;
-    margin: 10px;
-    
-    h4 {
-      font-size: 14px;
-      line-height: 10px;
-    }
-    
-    .media {
       margin-top: 5px;
-    }
-    
-    .media-object {
-      float: left;
-      margin-right: 5px;
-    }
-    
-    .media-body {
-      margin-top: -20px;
-      border: 1px solid #B4B4B4;
-      background-color: white;
-      padding: 5px;
-      padding-top: 7px;
-      .media {
-        font-size: 12px;
-        border-top: 1px solid #B4B4B4;
-        .media-object {
-          padding: 5px;
-        }
-        .media-body {
-          border: none;
-        }
-      }
-    }
-  }
-
-  article {
-    float: right;
-    margin-right: 10px;
-    margin-top: 20px;
-    
-    .picture-group {
-      margin-bottom: 10px;
-    }
-
-    .monkey-friends img {
-      width: 115px;
-      height: 76px;
+      width: 105px;
+      height: 70px;
     }
   }
 }
@@ -406,7 +190,7 @@ section {
       color: gray;
     }
 
-    ::-moz-placeholder {  /* Firefox 19+ */
+    ::-moz-placeholder { /* Firefox 19+ */
       font-size: 20px;
       padding-left: 10px;
       padding-top: 5px;
@@ -415,7 +199,7 @@ section {
       color: gray;
     }
 
-    :-ms-input-placeholder {  
+    :-ms-input-placeholder {
       font-size: 20px;
       padding-left: 10px;
       padding-top: 5px;
