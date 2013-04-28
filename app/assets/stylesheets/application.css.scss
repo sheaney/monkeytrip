@@ -36,94 +36,32 @@ section {
    }
 }
 
-.modal-body {
-  padding: 0px;
-}
-
 #myModal {
   display: none;
-  background-color: #E0E0E0;
-  
-  .modal-header {
-    background-color: #780000;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border-top-left-radius:5px;
-    border-top-right-radius:5px;
-    h3 {
-      font-size: 35px;
-      font-weight: 400;
-      font-family: Arial; 
-      letter-spacing: 2px;
-      color: #F0F0F0;
-      text-shadow: 0 1px 0 #ffffff;
-    }
-  }
 
   .monkey-fb-images img {
-    width: 185px;
-    height: 141px;
-    float: left;
-  }
-  
-  #secondImage {
-    width: 186px;
-    margin-left: 2px;
-    margin-right: 2px;
+    margin: 9px;
+    width: 150px;
+    height: 120px;
   }
 
   aside {
     float: left;
-    width: 50%;
-    margin-left: 9px;
-    padding: 5px;
-    margin: 10px;
-    
-    h4 {
-      font-size: 14px;
-      line-height: 10px;
-    }
-    
-    .media {
-      margin-top: 5px;
-    }
-    
-    .media-object {
-      float: left;
-      margin-right: 5px;
-    }
-    
-    .media-body {
-      margin-top: -20px;
-      border: 1px solid #B4B4B4;
-      background-color: white;
-      padding: 5px;
-      padding-top: 7px;
-      .media {
-        font-size: 12px;
-        border-top: 1px solid #B4B4B4;
-        .media-object {
-          padding: 5px;
-        }
-        .media-body {
-          border: none;
-        }
-      }
+
+    div {
+
     }
   }
 
   article {
     float: right;
-    margin-right: 10px;
-    margin-top: 20px;
-    
-    .picture-group {
-      margin-bottom: 10px;
-    }
+    padding-top: 50px;
 
     .monkey-friends img {
-      width: 115px;
-      height: 76px;
+      margin: 3px;
+      width: 80px;
+      height: 60px;
+      float: right;
     }
   }
 }
@@ -218,6 +156,10 @@ section {
   input {
     margin-top: 8px;
     margin-left: 10px;
+  }
+
+  .email-error {
+    border: 3px solid #ff0000;
   }
 }
 
