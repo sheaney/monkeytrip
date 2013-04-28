@@ -58,6 +58,14 @@ section {
       color: #F0F0F0;
       text-shadow: 0 1px 0 #ffffff;
     }
+
+    button.close {
+      float: right;
+      font-size: 35px;
+      background: transparent;
+      border: none;
+      color: #490305;
+    }
   }
 
   .monkey-fb-images img {
