@@ -1,16 +1,6 @@
 <section id="container">
-  <div class="frame">
-    <button type="button" id="test">Launch modal</button>
-  </div>
   <%= render partial: "/layouts/media" %>
+  <input id="place" type="textbox" onkeypress="placeMarker(event)" placeholder="City">
+  <div id="map"></div>
   <%= render partial: "/layouts/modal" %>
 </section>
-<script>
-  $(document).ready(function(){
-    $('#test').on('click', function(event){
-      $('#myModal').modal({
-          keyboard: true
-      })
-    });
-  });
-</script>

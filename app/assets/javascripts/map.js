@@ -25,221 +25,195 @@ var dallasPos = new google.maps.LatLng(32.7801399, -96.80045109999998);
 var chicagoPos = new google.maps.LatLng(41.8781136, -87.62979819999998);
 
 function initialize() {
-	var styles = [ {
-		"featureType" : "administrative",
-		"elementType" : "geometry",
-		"stylers" : [ {
-			"visibility" : "off"
-		} ]
-	}, {
-		"featureType" : "administrative.country",
-		"elementType" : "geometry",
-		"stylers" : [ {
-			"visibility" : "on"
-		} ]
-	}, {
-		"featureType" : "administrative.land_parcel",
-		"elementType" : "geometry",
-		"stylers" : [ {
-			"visibility" : "on"
-		} ]
-	}, {
-		"featureType" : "administrative.locality",
-		"elementType" : "geometry",
-		"stylers" : [ {
-			"visibility" : "on"
-		} ]
-	}, {
-		"featureType" : "administrative.neighborhood",
-		"elementType" : "geometry",
-		"stylers" : [ {
-			"visibility" : "on"
-		} ]
-	}, {
-		"featureType" : "administrative.province",
-		"elementType" : "geometry",
-		"stylers" : [ {
-			"visibility" : "on"
-		} ]
-	}, {
-		"featureType" : "landscape.natural.terrain",
-		"stylers" : [ {
-			"visibility" : "off"
-		} ]
-	}, {
-		"featureType" : "landscape.man_made",
-		"elementType" : "geometry",
-		"stylers" : [ {
-			"visibility" : "off"
-		} ]
-	}, {
-		"featureType" : "water",
-		"elementType" : "labels",
-		"stylers" : [ {
-			"visibility" : "off"
-		} ]
-	}, {
-		"featureType" : "road.highway",
-		"elementType" : "geometry",
-		"stylers" : [ {
-			"visibility" : "off"
-		} ]
-	}, {
-		"featureType" : "administrative.province",
-		"elementType" : "labels",
-		"stylers" : [ {
-			"visibility" : "off"
-		} ]
-	}, {
-		"featureType" : "water",
-		"elementType" : "geometry",
-		"stylers" : [ {
-			"lightness" : 30
-		} ]
-	} ];
-	var styledMap = new google.maps.StyledMapType(styles, {
-		name : "Styled Map"
-	});
+  var styles = [
+    {
+    "featureType": "administrative",
+    "elementType": "geometry",
+    "stylers": [ { "visibility": "off"} ]
+  }, {
+    "featureType": "administrative.country",
+    "elementType": "geometry",
+    "stylers": [ { "visibility": "on" } ]
+  }, {
+    "featureType": "administrative.land_parcel",
+    "elementType": "geometry",
+    "stylers": [ { "visibility": "on" } ]
+  }, {
+    "featureType": "administrative.locality",
+    "elementType": "geometry",
+    "stylers": [ { "visibility": "on" } ]
+  }, {
+    "featureType": "administrative.neighborhood",
+    "elementType": "geometry",
+    "stylers": [ { "visibility": "on" } ]
+  }, {
+    "featureType": "administrative.province",
+    "elementType": "geometry",
+    "stylers": [ { "visibility": "on" } ]
+  }, {
+    "featureType": "landscape.natural.terrain",
+    "stylers": [ { "visibility": "off" } ]
+  }, {
+    "featureType": "landscape.man_made",
+    "elementType": "geometry",
+    "stylers": [ { "visibility": "off" } ]
+  }, {
+    "featureType": "water",
+    "elementType": "labels",
+    "stylers": [ { "visibility": "off" } ]
+  }, {
+    "featureType": "road.highway",
+    "elementType": "geometry",
+    "stylers": [ { "visibility": "off" } ]
+  }, {
+    "featureType": "administrative.province",
+    "elementType": "labels",
+    "stylers": [ { "visibility": "off" } ]
+  }, {
+    "featureType": "water",
+    "elementType": "geometry",
+    "stylers": [ { "lightness": 30 } ] }
+  ];
+  var styledMap = new google.maps.StyledMapType(styles, {name: "Styled Map"});
 
-	map = new google.maps.Map(document.getElementById("map"), {
-		center : new google.maps.LatLng(initLat, initLng),
-		zoom : initZoom,
-		mapTypeControlOptions : {
-			mapTypeIds : [ google.maps.MapTypeId.ROADMAP, 'map_style' ]
-		}
-	});
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: new google.maps.LatLng(initLat, initLng),
+    zoom: initZoom,
+    mapTypeControlOptions: {
+      mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+    }
+  });
 
-	map.mapTypes.set("map", styledMap);
-	map.setMapTypeId("map");
+  map.mapTypes.set("map", styledMap);
+  map.setMapTypeId("map");
 
-	new google.maps.Marker({
-		position : guadalajaraPos,
-		map : map,
-		title : "Guadalajara"
-	});
-	new google.maps.Marker({
-		position : villahermosaPos,
-		map : map,
-		title : "Villahermosa"
-	});
-	new google.maps.Marker({
-		position : cancunPos,
-		map : map,
-		title : "Cancun"
-	});
-	new google.maps.Marker({
-		position : monterreyPos,
-		map : map,
-		title : "Monterrey"
-	});
-	new google.maps.Marker({
-		position : caboPos,
-		map : map,
-		title : "Cabo San Lucas"
-	});
-	new google.maps.Marker({
-		position : tuxtlaPos,
-		map : map,
-		title : "Tuxtla Gutiérrez"
-	});
-	new google.maps.Marker({
-		position : ixtapaPos,
-		map : map,
-		title : "Ixtapa Zihuatanejo"
-	});
-	new google.maps.Marker({
-		position : mexicoCityPos,
-		map : map,
-		title : "Mexico City"
-	});
-	new google.maps.Marker({
-		position : pueblaPos,
-		map : map,
-		title : "Puebla"
-	});
-	new google.maps.Marker({
-		position : rositaPos,
-		map : map,
-		title : "Rosita"
-	});
-	var bostonMarker = new google.maps.Marker({
-		position : bostonPos,
-		map : map,
-		title : "Boston"
-	});
-	new google.maps.Marker({
-		position : nyPos,
-		map : map,
-		title : "New York"
-	});
-	new google.maps.Marker({
-		position : austinPos,
-		map : map,
-		title : "Austin"
-	});
-	new google.maps.Marker({
-		position : omahaPos,
-		map : map,
-		title : "Omaha"
-	});
-	new google.maps.Marker({
-		position : dallasPos,
-		map : map,
-		title : "Dallas"
-	});
-	new google.maps.Marker({
-		position : miamiPos,
-		map : map,
-		title : "Miami"
-	});
-	new google.maps.Marker({
-		position : amherstPos,
-		map : map,
-		title : "Amherst"
-	});
-	new google.maps.Marker({
-		position : zacatecasPos,
-		map : map,
-		title : "Zacatecas"
-	});
-	new google.maps.Marker({
-		position : chicagoPos,
-		map : map,
-		title : "Chicago"
-	});
-	new google.maps.Marker({
-		position : meridaPos,
-		map : map,
-		title : "Mérida"
-	});
+  new google.maps.Marker({
+    position: guadalajaraPos,
+    map: map,
+    title: "Guadalajara"
+  });
+  new google.maps.Marker({
+    position: villahermosaPos,
+    map: map,
+    title: "Villahermosa"
+  });
+  new google.maps.Marker({
+    position: cancunPos,
+    map: map,
+    title: "Cancun"
+  });
+  new google.maps.Marker({
+    position: monterreyPos,
+    map: map,
+    title: "Monterrey"
+  });
+  new google.maps.Marker({
+    position: caboPos,
+    map: map,
+    title: "Cabo San Lucas"
+  });
+  new google.maps.Marker({
+    position: tuxtlaPos,
+    map: map,
+    title: "Tuxtla Gutiérrez"
+  });
+  new google.maps.Marker({
+    position: ixtapaPos,
+    map: map,
+    title: "Ixtapa Zihuatanejo"
+  });
+  new google.maps.Marker({
+    position: mexicoCityPos,
+    map: map,
+    title: "Mexico City"
+  });
+  new google.maps.Marker({
+    position: pueblaPos,
+    map: map,
+    title: "Puebla"
+  });
+  new google.maps.Marker({
+    position: rositaPos,
+    map: map,
+    title: "Rosita"
+  });
+  var bostonMarker = new google.maps.Marker({
+    position: bostonPos,
+    map: map,
+    title: "Boston"
+  });
+  new google.maps.Marker({
+    position: nyPos,
+    map: map,
+    title: "New York"
+  });
+  new google.maps.Marker({
+    position: austinPos,
+    map: map,
+    title: "Austin"
+  });
+  new google.maps.Marker({
+    position: omahaPos,
+    map: map,
+    title: "Omaha"
+  });
+  new google.maps.Marker({
+    position: dallasPos,
+    map: map,
+    title: "Dallas"
+  });
+  new google.maps.Marker({
+    position: miamiPos,
+    map: map,
+    title: "Miami"
+  });
+  new google.maps.Marker({
+    position: amherstPos,
+    map: map,
+    title: "Amherst"
+  });
+  new google.maps.Marker({
+    position: zacatecasPos,
+    map: map,
+    title: "Zacatecas"
+  });
+  new google.maps.Marker({
+    position: chicagoPos,
+    map: map,
+    title: "Chicago"
+  });
+  new google.maps.Marker({
+    position: meridaPos,
+    map: map,
+    title: "Mérida"
+  });
 
-	google.maps.event.addListener(bostonMarker, 'click', function() {
-		alert("Hola, Heaney");
-	});
+  google.maps.event.addListener(bostonMarker, 'click', function() {
+	  $('#myModal').modal({
+          keyboard: true
+      })
+  });
 
-	new google.maps.places.Autocomplete(document.getElementById('place'), {
-		types : [ '(cities)' ]
-	});
+  new google.maps.places.Autocomplete(document.getElementById('place'), { types: ['(cities)'] });
 }
 
 function placeMarker(e) {
-	var place = document.getElementById("place").value;
-	if (e.keyCode == 13 && place != "") {
-		var geocoder = new google.maps.Geocoder();
+  var place = document.getElementById("place").value;
+  if(e.keyCode == 13 && place != "") {
+    var geocoder = new google.maps.Geocoder();
 
-		geocoder.geocode({
-			'address' : place
-		}, function(results, status) {
-			if (status == google.maps.GeocoderStatus.OK) {
-				new google.maps.Marker({
-					position : new google.maps.LatLng(
-							results[0].geometry.location.lat(),
-							results[0].geometry.location.lng()),
-					map : map,
-					title : place,
-					animation : google.maps.Animation.DROP
-				});
-			}
-		});
-	}
+    geocoder.geocode({'address': place}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        new google.maps.Marker({
+          position: new google.maps.LatLng(
+            results[0].geometry.location.lat(), results[0].geometry.location.lng()),
+            map: map,
+            title: place,
+            animation: google.maps.Animation.DROP
+        });
+      }
+    });
+  }
 }
+
+google.maps.event.addDomListener(window, 'load', initialize);
