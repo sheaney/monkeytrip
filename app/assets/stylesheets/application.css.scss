@@ -35,7 +35,7 @@ section {
    float: left;
    width: 20%;
    background-color: #780000;
-   min-height: 5em;
+   min-height: 5.6em;
 
    a {
      text-decoration: none;
@@ -82,8 +82,34 @@ section {
       outline: none;
     }
 
-    /* Firefox 18-, FIrefox 19+, IE, Chrome */
-    ::-webkit-input-placeholder, :-moz-placeholder, ::-moz-placeholder, :-ms-input-placeholder {
+    ::-webkit-input-placeholder {
+      font-size: 20px;
+      padding-left: 10px;
+      padding-top: 5px;
+      font-family: Gill Sans, Verdana;
+      text-transform: uppercase;
+      color: gray;
+    }
+
+    :-moz-placeholder {
+      font-size: 20px;
+      padding-left: 10px;
+      padding-top: 5px;
+      font-family: Gill Sans, Verdana;
+      text-transform: uppercase;
+      color: gray;
+    }
+
+    ::-moz-placeholder {
+      font-size: 20px;
+      padding-left: 10px;
+      padding-top: 5px;
+      font-family: Gill Sans, Verdana;
+      text-transform: uppercase;
+      color: gray;
+    }
+
+    :-ms-input-placeholder {
       font-size: 20px;
       padding-left: 10px;
       padding-top: 5px;
@@ -236,8 +262,25 @@ section {
     color: black;
   }
 
-  /* Firefox 18-, FIrefox 19+, IE, Chrome */
-  ::-webkit-input-placeholder, :-moz-placeholder, ::-moz-placeholder, :-ms-input-placeholder {
+  ::-webkit-input-placeholder {
+    font-size: 16px;
+    font-family: Gill Sans, Verdana;
+    color: gray;
+  }
+
+  :-moz-placeholder {
+    font-size: 16px;
+    font-family: Gill Sans, Verdana;
+    color: gray;
+  }
+
+  ::-moz-placeholder {
+    font-size: 16px;
+    font-family: Gill Sans, Verdana;
+    color: gray;
+  }
+
+  :-ms-input-placeholder {
     font-size: 16px;
     font-family: Gill Sans, Verdana;
     color: gray;
