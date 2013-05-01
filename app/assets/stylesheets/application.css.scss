@@ -28,6 +28,76 @@ section {
   height: 100%;
 }
 
+/* Upper site bars */
+
+.brand-bar {
+   position: absolute;
+   float: left;
+   width: 20%;
+   background-color: #780000;
+   min-height: 5em;
+
+   a {
+     text-decoration: none;
+     p {
+       padding-top: .65em;
+       padding-left: .45em;
+       font-size: 2.5em;
+       font-family: Arial;
+       color: #f0f0f0;
+       letter-spacing: .1em;
+       text-shadow: 0 1px 0 #ffffff;
+     }
+   }
+}
+
+.style-bar {
+   margin-left: 20%;
+   width: 80%;
+   height: 11%;
+   background-color: black;
+   z-index: 1;
+
+  .search-location {
+    padding-top: 8px;
+
+    .imgClass { 
+        background-image: url(/assets/airplane.png);
+        background-position:  0px 0px;
+        background-repeat: no-repeat;
+        border: 0px;
+    }
+
+    input {
+      width: 350px;
+      height: 50px;
+      color: white;
+      font-size: 25px;
+      padding-left: 5px;
+      background-color: black;
+      border: none;
+    }
+
+    input:focus {
+      outline: none;
+    }
+
+    /* Firefox 18-, FIrefox 19+, IE, Chrome */
+    ::-webkit-input-placeholder, :-moz-placeholder, ::-moz-placeholder, :-ms-input-placeholder {
+      font-size: 20px;
+      padding-left: 10px;
+      padding-top: 5px;
+      font-family: Gill Sans, Verdana;
+      text-transform: uppercase;
+      color: gray;
+    }
+
+  }
+
+}
+
+/* End of upper site bars */
+
 #map {
   height: 89%;
   
@@ -148,83 +218,9 @@ section {
 
 // Map
 
-.brand-bar {
-   position: absolute;
-   width: 20%;
+// End of map
 
-   .navbar-inner {
-     min-height: 76px;
-   }
-}
-
-.style-bar {
-   margin-left: 20%;
-   width: 80%;
-   height: 11%;
-   background-color: black;
-
-  .search-location {
-    padding-top: 8px;
-
-    .imgClass { 
-        background-image: url(/assets/airplane.png);
-        background-position:  0px 0px;
-        background-repeat: no-repeat;
-        border: 0px;
-    }
-
-    input {
-      width: 350px;
-      height: 50px;
-      color: white;
-      font-size: 25px;
-      padding-left: 5px;
-      background-color: black;
-      border: none;
-    }
-
-    input:focus {
-      outline: none;
-    }
-
-    ::-webkit-input-placeholder {
-      font-size: 20px;
-      padding-left: 10px;
-      padding-top: 5px;
-      font-family: Gill Sans, Verdana;
-      text-transform: uppercase;
-      color: gray;
-    }
-
-    :-moz-placeholder { /* Firefox 18- */
-      font-size: 20px;
-      padding-left: 10px;
-      padding-top: 5px;
-      font-family: Gill Sans, Verdana;
-      text-transform: uppercase;
-      color: gray;
-    }
-
-    ::-moz-placeholder { /* Firefox 19+ */
-      font-size: 20px;
-      padding-left: 10px;
-      padding-top: 5px;
-      font-family: Gill Sans, Verdana;
-      text-transform: uppercase;
-      color: gray;
-    }
-
-    :-ms-input-placeholder {
-      font-size: 20px;
-      padding-left: 10px;
-      padding-top: 5px;
-      font-family: Gill Sans, Verdana;
-      text-transform: uppercase;
-      color: gray;
-    }
-  }
-
-}
+// Footer email bar
 
 .footer-email-bar {
   position: fixed;
@@ -240,25 +236,8 @@ section {
     color: black;
   }
 
-  ::-webkit-input-placeholder {
-    font-size: 16px;
-    font-family: Gill Sans, Verdana;
-    color: gray;
-  }
-
-  :-moz-placeholder { /* Firefox 18- */
-    font-size: 16px;
-    font-family: Gill Sans, Verdana;
-    color: gray;
-  }
-
-  ::-moz-placeholder { /* Firefox 19+ */
-    font-size: 16px;
-    font-family: Gill Sans, Verdana;
-    color: gray;
-  }
-
-  :-ms-input-placeholder {
+  /* Firefox 18-, FIrefox 19+, IE, Chrome */
+  ::-webkit-input-placeholder, :-moz-placeholder, ::-moz-placeholder, :-ms-input-placeholder {
     font-size: 16px;
     font-family: Gill Sans, Verdana;
     color: gray;
@@ -278,4 +257,4 @@ section {
   }
 }
 
-// End of map
+// End of footer bar
