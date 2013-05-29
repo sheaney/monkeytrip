@@ -15,3 +15,5 @@
 //= require_tree .
 //= require bootstrap.min.js
 //= require map.js
+//= require cufon-yui.js
+//= require jquery.easing.1.3.js
