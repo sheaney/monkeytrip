@@ -135,15 +135,18 @@
 	z-index:9999;
 }
 .tourcontrols a{
-	font-size:11px;
+	font-size:13px;
 	color:#f0f0f0;
 	cursor:pointer;
-	font-weight:normal;
-	text-decoration:underline;
+	text-decoration:none;
+  text-shadow: none;
 	margin:10px;
 }
 .tourcontrols a:hover{
-	color:#fff;
+  color: #cb0500;
+}
+.tourcontrols p{
+  font-size: 18px;
 }
 .close{
 	position:absolute;
