@@ -10,6 +10,8 @@
 *
 *= require bootstrap.min.css
 *= require button-navbar.css
+*= require jquerytour.css
+*= require thumbnails.css
 */
 
 // Modals
@@ -260,6 +262,7 @@ section {
     margin-left: 30px;
     font-size: 20px;
     color: black;
+
   }
 
   ::-webkit-input-placeholder {
