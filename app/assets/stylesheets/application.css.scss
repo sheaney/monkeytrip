@@ -37,7 +37,7 @@ section {
    float: left;
    width: 20%;
    background-color: #780000;
-   min-height: 5.6em;
+   height: 11%;
 
    a {
      text-decoration: none;
@@ -62,13 +62,6 @@ section {
 
   .search-location {
     padding-top: 8px;
-
-    .imgClass { 
-        background-image: url(/assets/airplane.png);
-        background-position:  0px 0px;
-        background-repeat: no-repeat;
-        border: 0px;
-    }
 
     input {
       width: 350px;
