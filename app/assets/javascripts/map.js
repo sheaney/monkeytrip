@@ -2,6 +2,8 @@ var initLat = 29.4241219;
 var initLng = -98.49362819999999;
 var initZoom = 4;
 var map;
+var userMarker;
+var markers = [];
 
 var locations = [
   new google.maps.LatLng(17.987557, -92.929147),
@@ -106,6 +108,7 @@ function initialize() {
   for(var i = 0; i < locations.length; i++) {
     marker = createMarker(locations[i], places[i], pastLocation);
     showModal(marker, places[i]);
+    markers.push(marker);
   }
 
   marker = createMarker(new google.maps.LatLng(20.6596492, -103.34962510000003), "guadalajara, mexico",
@@ -115,10 +118,20 @@ function initialize() {
       keyboard: true
     });
   });
+  markers.push(marker);
 
   showUserLocation();
 
   new google.maps.places.Autocomplete(document.getElementById('place'), { types: ['(cities)'] });
+}
+
+function fromLatLngToPixels(latLng) {
+  var overlay = new google.maps.OverlayView();
+  overlay.draw = function() {};
+  overlay.setMap(map);
+  var proj = overlay.getProjection();
+  var pos = userMarker.getPosition();
+  return proj.fromLatLngToContainerPixel(latLng);
 }
 
 function showUserLocation() {
@@ -131,29 +144,36 @@ function showUserLocation() {
 
 function geoSuccess(location) {
   var latLng = new google.maps.LatLng(location.coords.latitude, location.coords.longitude);
-  reverseGeocode(latLng, createMarker(latLng, "", currentLocation));
+  userMarker = createMarker(latLng, "", currentLocation);
+  reverseGeocode(latLng, userMarker);
 }
 
 function geoError() {
-  createMarker(new google.maps.LatLng(37.7749295, -122.41941550000001), "san francisco, usa",
-                                      currentLocation);
+  place = "san francisco, usa";
+  userMarker = createMarker(new google.maps.LatLng(37.7749295, -122.41941550000001), place,
+                            currentLocation);
+  showModal(userMarker, place);
 }
 
 function reverseGeocode(latLng, marker) {
   var geocoder = new google.maps.Geocoder();
   geocoder.geocode({'latLng': latLng}, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
-      for(i = results.length; --i >= 0;) {
+      var i;
+      for(i = results.length; --i > 0;) {
         if(results[i].types[0] == "locality") {
           var wholePlace = results[i].formatted_address.split(", ");
           var place = wholePlace[0];
           if(wholePlace[wholePlace.length - 1] != place)
             place += ", " + wholePlace[wholePlace.length - 1];
-          marker.setTitle(place.toLowerCase());
-          return;
+          break;
         }
       }
-      marker.setTitle(results[results.length - 3].formatted_address.toLowerCase());
+      if(i == 0)
+        place = results[results.length - 3].formatted_address;
+      place = place.toLowerCase();
+      marker.setTitle(place);
+      showModal(userMarker, place);
     }
   });
 }
