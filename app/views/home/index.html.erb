@@ -42,6 +42,14 @@ $(function() {
 				 */
 				var config = [
 					{
+						"name" 		: "tour_0",
+						"bgcolor"	: "black",
+						"color"		: "white",
+						"position"	: "BR",
+						"text"		: "This is where you're at currently.",
+						"time" 		: 5000
+					},
+					{
 						"name" 		: "tour_1",
 						"bgcolor"	: "black",
 						"color"		: "white",
@@ -106,8 +114,8 @@ $(function() {
 						endTour();
 						return false;
 					}
-					++step;
-					showTooltip();
+          ++step;
+          showTooltip();
 				}
 				
 				function prevStep(){
@@ -121,8 +129,8 @@ $(function() {
 					}		
 					if(step <= 1)
 						return false;
-					--step;
-					showTooltip();
+          --step;
+          showTooltip();
 				}
 				
 				function endTour(){
@@ -137,14 +145,17 @@ $(function() {
 					step = 0;
 					if(autoplay) clearTimeout(showtime);
 					nextStep();
-				}
-				
+        }
+
 				function showTooltip(){
 					//remove current tooltip
 					removeTooltip();
-					
-					var step_config		= config[step-1];
-					var $elem			= $('.' + step_config.name);
+
+          //get the tour step configuration from the json config object
+          var step_config		= config[step-1];
+          var $elem;
+          if (step !== 1)
+            $elem			= $('.' + step_config.name);
 					
 					if(autoplay)
 						showtime	= setTimeout(nextStep,step_config.time);
@@ -172,11 +183,21 @@ $(function() {
 					//append the tooltip but hide it
 					$('BODY').prepend($tooltip);
 					
-					//get some info of the element
-					var e_w				= $elem.outerWidth();
-					var e_h				= $elem.outerHeight();
-					var e_l				= $elem.offset().left;
-					var e_t				= $elem.offset().top;
+          //get some info of the element
+
+          if (step === 1) {
+            var e_w = 0;
+            var e_h = 0;
+            var position;
+            position = fromLatLngToPixels(userMarker.position)
+            var e_l = position.x;
+            var e_t = position.y + 20;
+          } else {
+            var e_w				= $elem.outerWidth();
+            var e_h				= $elem.outerHeight();
+            var e_l				= $elem.offset().left;
+            var e_t				= $elem.offset().top;
+          }
 					
 					
 					switch(tip_position){

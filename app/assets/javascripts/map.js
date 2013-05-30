@@ -2,6 +2,7 @@ var initLat = 29.4241219;
 var initLng = -98.49362819999999;
 var initZoom = 4;
 var map;
+var projection;
 var userMarker;
 var markers = [];
 
@@ -113,11 +114,28 @@ function initialize() {
 
   marker = createMarker(new google.maps.LatLng(20.6596492, -103.34962510000003), "guadalajara, mexico",
                         pastLocation);
+
+  MyOverlay.prototype = new google.maps.OverlayView();
+  MyOverlay.prototype.onAdd = function() { }
+  MyOverlay.prototype.onRemove = function() { }
+  MyOverlay.prototype.draw = function() { }
+
+  function MyOverlay(map) { this.setMap(map); }
+
+  var overlay = new MyOverlay(map);
+
+  // Wait for idle map
+  google.maps.event.addListener(map, 'idle', function() {
+    // Get projection
+    projection = overlay.getProjection();
+  });
+
   google.maps.event.addListener(marker, 'click', function() {
     $('#modalGuadalajara').modal({
       keyboard: true
     });
   });
+
   markers.push(marker);
 
   showUserLocation();
@@ -126,12 +144,7 @@ function initialize() {
 }
 
 function fromLatLngToPixels(latLng) {
-  var overlay = new google.maps.OverlayView();
-  overlay.draw = function() {};
-  overlay.setMap(map);
-  var proj = overlay.getProjection();
-  var pos = userMarker.getPosition();
-  return proj.fromLatLngToContainerPixel(latLng);
+  return projection.fromLatLngToContainerPixel(latLng);
 }
 
 function showUserLocation() {
@@ -217,3 +230,4 @@ function placeMarker(e) {
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
+
