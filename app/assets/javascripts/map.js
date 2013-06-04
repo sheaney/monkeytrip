@@ -1,37 +1,25 @@
-var initLat = 29.4241219;
-var initLng = -98.49362819999999;
-var initZoom = 4;
+var initZoom = 3;
 var map;
 var projection;
 var userMarker;
 var markers = [];
 
 var locations = [
-  new google.maps.LatLng(17.987557, -92.929147),
-  new google.maps.LatLng(19.4326077, -99.13320799999997),
-  new google.maps.LatLng(21.158964, -86.84593699999999),
-  new google.maps.LatLng(22.8905327, -109.91673709999998),
-  new google.maps.LatLng(22.7708555, -102.5832426),
-  new google.maps.LatLng(19.046795, -98.20922300000001),
-  new google.maps.LatLng(16.0981746, -93.75170830000002),
-  new google.maps.LatLng(28.345331, -101.66817100000003),
-  new google.maps.LatLng(20.719148, -105.20912599999997),
-  new google.maps.LatLng(20.97, -89.62),
-  new google.maps.LatLng(42.3584308, -71.0597732),
-  new google.maps.LatLng(42.366667, -72.51666699999998),
-  new google.maps.LatLng(40.7143528, -74.0059731),
-  new google.maps.LatLng(25.7889689, -80.22643929999998),
-  new google.maps.LatLng(30.267153, -97.74306079999997),
-  new google.maps.LatLng(41.2523634, -95.99798829999997),
-  new google.maps.LatLng(32.7801399, -96.80045109999998),
-  new google.maps.LatLng(41.8781136, -87.62979819999998)
-];
+  new google.maps.LatLng(52.3702157, 4.895167899999933),
+  new google.maps.LatLng(33.7489954, -84.3879824),
+  new google.maps.LatLng(52.519171, 13.406091199999992),
+  new google.maps.LatLng(31.768319, 35.21370999999999),
+  new google.maps.LatLng(59.32893000000001, 18.064910000000054),
+  new google.maps.LatLng(14.5995124, 120.9842195),
+  new google.maps.LatLng(13.7278956, 100.52412349999997),
+  new google.maps.LatLng(-18.914872, 47.531611999999996),
+  new google.maps.LatLng(16.7478677, -93.1125826),
+  new google.maps.LatLng(-22.9035393, -43.20958689999998)
+  ];
 var places = [
-  "villahermosa, mexico", "mexico city, mexico", "cancun, mexico",
-  "cabo san lucas, mexico", "zacatecas, mexico", "puebla, mexico",
-  "tuxtla gutierrez, mexico", "rosita,mexico", "ixtapa zihuatanejo, mexico", "merida, mexico",
-  "boston, usa", "amherst, usa", "new york, usa", "miami, usa",
-  "austin, usa", "omaha, usa","dallas, usa", "chicago, usa"
+  "amsterdam, netherlands", "atlanta, usa", "berlin, germany", "jerusalem, israel", "stockholm, sweden",
+  "manila, philippines", "bangkok, thailand", "antanarivo, madagascar", "tuxtla gutierrez, mexico",
+  "rio de janeiro, brazil"
 ];
 
 var futureLocation = 'assets/red_pin.png';
@@ -92,7 +80,7 @@ function initialize() {
   var styledMap = new google.maps.StyledMapType(styles, {name: "Styled Map"});
 
   map = new google.maps.Map(document.getElementById("map"), {
-    center: new google.maps.LatLng(initLat, initLng),
+    center: new google.maps.LatLng(0, 0),
     zoom: initZoom,
     panControl: false,
     mapTypeControl: false,
@@ -112,9 +100,6 @@ function initialize() {
     markers.push(marker);
   }
 
-  marker = createMarker(new google.maps.LatLng(20.6596492, -103.34962510000003), "guadalajara, mexico",
-                        pastLocation);
-
   MyOverlay.prototype = new google.maps.OverlayView();
   MyOverlay.prototype.onAdd = function() { }
   MyOverlay.prototype.onRemove = function() { }
@@ -129,14 +114,6 @@ function initialize() {
     // Get projection
     projection = overlay.getProjection();
   });
-
-  google.maps.event.addListener(marker, 'click', function() {
-    $('#modalGuadalajara').modal({
-      keyboard: true
-    });
-  });
-
-  markers.push(marker);
 
   showUserLocation();
 
@@ -159,13 +136,15 @@ function geoSuccess(location) {
   var latLng = new google.maps.LatLng(location.coords.latitude, location.coords.longitude);
   userMarker = createMarker(latLng, "", currentLocation);
   reverseGeocode(latLng, userMarker);
+  map.setCenter(latLng);
 }
 
 function geoError() {
+  var latLng = new google.maps.LatLng(37.7749295, -122.41941550000001);
   place = "san francisco, usa";
-  userMarker = createMarker(new google.maps.LatLng(37.7749295, -122.41941550000001), place,
-                            currentLocation);
+  userMarker = createMarker(new google.maps.LatLng(latLng), place, currentLocation);
   showModal(userMarker, place);
+  map.setCenter(latLng);
 }
 
 function reverseGeocode(latLng, marker) {
