@@ -4,13 +4,13 @@
   </div>
   <div class="style-bar">
     <div class="search-location">
-      <input id="place" type="textbox" class="span2 tour_1" onkeypress="placeMarker(event)" placeholder="What's your next hop?">
+      <input id="place" type="textbox" class="span2 tour_2" onkeypress="placeMarker(event)" placeholder="What's your next hop?">
       <%#<input type="submit" value="" class="imgClass" onclick="placeMarker(event)"/>%>
     </div>
   </div>
   <div id="map"></div>
   <div class="footer-email-bar">
-    <input id="email" type="text" class="span2 tour_2" placeholder="john@example.com">
+    <input id="email" type="text" class="span2 tour_8" placeholder="john@example.com">
     <button id="submit-email" type="submit" class="btn-success">Sign Up</button>
   </div>
   <%= render partial: "/layouts/modal" %>
@@ -46,11 +46,19 @@ $(function() {
 						"bgcolor"	: "black",
 						"color"		: "white",
 						"position"	: "BR",
-						"text"		: "This is where you're at currently.",
+						"text"		: "Monkeytrip is a site that groups your world travel experiences. This is where you're at currently.",
 						"time" 		: 5000
 					},
 					{
 						"name" 		: "tour_1",
+						"bgcolor"	: "black",
+						"color"		: "white",
+						"position"	: "BR",
+						"text"		: "Orange pins are places you've visited",
+						"time" 		: 5000
+					},
+					{
+						"name" 		: "tour_2",
 						"bgcolor"	: "black",
 						"color"		: "white",
 						"position"	: "TR",
@@ -58,11 +66,51 @@ $(function() {
 						"time" 		: 5000
 					},
 					{
-						"name" 		: "tour_2",
+						"name" 		: "tour_3",
+						"bgcolor"	: "black",
+						"color"		: "white",
+						"position"	: "TL",
+						"text"		: "Let's say you visited Guadalajara in one of your recent trips",
+						"time" 		: 5000
+					},
+					{
+						"name" 		: "tour_4",
+						"bgcolor"	: "black",
+						"color"		: "white",
+						"position"	: "TR",
+						"text"		: "Here's some of the fun things you did while you were there",
+						"time" 		: 5000
+					},
+					{
+						"name" 		: "tour_5",
+						"bgcolor"	: "black",
+						"color"		: "white",
+						"position"	: "BR",
+						"text"		: "And here's some of the stuff you and your friends had to say while you were there",
+						"time" 		: 5000
+					},
+					{
+						"name" 		: "tour_6",
 						"bgcolor"	: "black",
 						"color"		: "white",
 						"position"	: "BL",
-						"text"		: "Just leave us your email and we'll keep you updated!",
+						"text"		: "Yeah you definitely met some pretty interesting people there too",
+						"time" 		: 5000
+					},
+					{
+						"name" 		: "tour_7",
+						"bgcolor"	: "black",
+						"color"		: "white",
+						"position"	: "BL",
+						"text"		: "Visited some pretty interesting places there as well",
+						"time" 		: 5000
+					},
+					{
+						"name" 		: "tour_8",
+						"bgcolor"	: "black",
+						"color"		: "white",
+						"position"	: "BL",
+						"text"		: "Leave us your email and we'll let you know as soon as we launch!",
 						"time" 		: 5000
 					}
 				],
@@ -147,33 +195,47 @@ $(function() {
 					nextStep();
         }
 
-				function showTooltip(){
+        function checkForModal(){
+          // If the step refers to displaying modal
+          // then make sure modal is visible first
+          if (step === 4) {
+            displayModal(markers[0]);
+          }
+
+          // Hide modal if not used in the current step
+          if (step === 9) {
+            hideModal();
+          }
+        }
+
+        function showTooltip(){
+          // Check if we need to display the modal
+          checkForModal();
+
 					//remove current tooltip
-					removeTooltip();
+          removeTooltip();
 
           //get the tour step configuration from the json config object
           var step_config		= config[step-1];
           var $elem;
-          if (step !== 1)
+          if (step !== 1 && step !== 2)
             $elem			= $('.' + step_config.name);
 					
 					if(autoplay)
 						showtime	= setTimeout(nextStep,step_config.time);
-					
+
 					var bgcolor 		= step_config.bgcolor;
-					var color	 		= step_config.color;
+          var color	 		= step_config.color;
 					
 					var $tooltip		= $('<div>',{
 						id			: 'tour_tooltip',
 						class: 'tooltip',
 						html		: '<p>'+step_config.text+'</p><span class="tooltip_arrow"></span>'
 					}).css({
-						'display'			: 'none',
+            'display'			: 'none',
 						'background-color'	: bgcolor,
 						'color'				: color
 					});
-					
-					//position the tooltip correctly:
 					
 					//the css properties the tooltip should have
 					var properties		= {};
@@ -185,18 +247,28 @@ $(function() {
 					
           //get some info of the element
 
-          if (step === 1) {
-            var e_w = 0;
-            var e_h = 0;
-            var position;
-            position = fromLatLngToPixels(userMarker.position)
-            var e_l = position.x;
-            var e_t = position.y + 20;
-          } else {
-            var e_w				= $elem.outerWidth();
-            var e_h				= $elem.outerHeight();
-            var e_l				= $elem.offset().left;
-            var e_t				= $elem.offset().top;
+          switch (step) {
+            case 1:
+              var e_w = 0;
+              var e_h = 0;
+              var position;
+              position = fromLatLngToPixels(userMarker.position)
+              var e_l = position.x;
+              var e_t = position.y + 20;
+              break;
+            case 2:
+              var e_w = 0;
+              var e_h = 0;
+              var position;
+              position = fromLatLngToPixels(markers[0].position)
+              var e_l = position.x;
+              var e_t = position.y + 20;
+              break
+            default:
+              var e_w				= $elem.outerWidth();
+              var e_h				= $elem.outerHeight();
+              var e_l				= $elem.offset().left;
+              var e_t				= $elem.offset().top;
           }
 					
 					
@@ -319,7 +391,8 @@ $(function() {
 					}
 					else
 					//show the new tooltip
-						$tooltip.css(properties).show();
+            $tooltip.css(properties).show();
+
 				}
 				
 				function removeTooltip(){

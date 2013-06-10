@@ -179,6 +179,17 @@ function showModal(marker, place) {
   });
 }
 
+function displayModal(marker) {
+  $('#modalGuadalajara').modal({
+    keyboard: true
+  });
+  $('#myModalLabel').html(marker.place);
+}
+
+function hideModal() {
+  $('#modalGuadalajara').modal('hide');
+}
+
 function createMarker(location, title, image) {
   var marker = new google.maps.Marker({
     position: location,

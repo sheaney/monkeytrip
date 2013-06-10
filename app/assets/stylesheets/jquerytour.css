@@ -5,7 +5,7 @@
 	top:0;
 	background-color:black;
 	color:white;
-	z-index:999;
+	z-index:1051;
 	border:2px solid #000;
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
@@ -16,7 +16,7 @@
 	padding:10px;
 	font-size:14px;
 	text-shadow:none;
-	font-style:italic;
+	font-style:normal;
 }
 .tooltip_arrow{
 	position:absolute;
