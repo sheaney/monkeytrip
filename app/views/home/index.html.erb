@@ -14,7 +14,6 @@
     <button id="submit-email" type="submit" class="btn-success">Sign Up</button>
   </div>
   <%= render partial: "/layouts/modal" %>
-  <%= render partial: "/layouts/modal-guadalajara" %>
   <%= render partial: "/layouts/modal-amsterdam" %>
   <%= render partial: "/layouts/modal-atlanta" %>
   <%= render partial: "/layouts/modal-antanarivo" %>
@@ -82,7 +81,7 @@ $(function() {
 						"bgcolor"	: "black",
 						"color"		: "white",
 						"position"	: "TL",
-						"text"		: "Let's say you visited Guadalajara in one of your recent trips",
+						"text"		: "Let's say you visited Berlin in one of your recent trips",
 						"time" 		: 5000
 					},
 					{
@@ -211,12 +210,12 @@ $(function() {
           // If the step refers to displaying modal
           // then make sure modal is visible first
           if (step === 4) {
-            displayModal(markers[0]);
+            displayModal(markers[2]);
           }
 
           // Hide modal if not used in the current step
           if (step === 9) {
-            hideModal();
+            hideModal(markers[2]);
           }
         }
 

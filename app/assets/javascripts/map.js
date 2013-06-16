@@ -191,14 +191,18 @@ function showModal(marker, place) {
 }
 
 function displayModal(marker) {
-  $('#modalGuadalajara').modal({
+  var city = marker.title.substring(0, marker.title.indexOf(","))
+  var cityID = mapIdtoCity[city];
+  $('#myModal' + cityID).modal({
     keyboard: true
   });
-  $('#myModalLabel').html(marker.place);
+  $('#myModalLabel' + cityID).html(marker.title);
 }
 
-function hideModal() {
-  $('#modalGuadalajara').modal('hide');
+function hideModal(marker) {
+  var city = marker.title.substring(0, marker.title.indexOf(","))
+  var cityID = mapIdtoCity[city];
+  $('#myModal' + cityID).modal('hide');
 }
 
 function createMarker(location, title, image) {
