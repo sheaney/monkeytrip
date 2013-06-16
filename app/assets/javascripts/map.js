@@ -3,6 +3,10 @@ var map;
 var projection;
 var userMarker;
 var markers = [];
+var tuxtla = "tuxtla gutierrez";
+var rio = "rio de janeiro";
+var mapIdtoCity = {amsterdam:1, atlanta:2, berlin:3, jerusalem:4, stockholm:5, manila:6, bangkok:7,
+antanarivo:8, tuxtla:9, rio:10 };
 
 var locations = [
   new google.maps.LatLng(52.3702157, 4.895167899999933),
@@ -94,11 +98,12 @@ function initialize() {
 
   var marker;
 
-  for(var i = 0; i < locations.length; i++) {
+  for(var i = 0; i < locations.length; i++) { 
     marker = createMarker(locations[i], places[i], pastLocation);
     showModal(marker, places[i]);
-    markers.push(marker);
+    markers.push(marker);  
   }
+
 
   MyOverlay.prototype = new google.maps.OverlayView();
   MyOverlay.prototype.onAdd = function() { }
@@ -119,6 +124,7 @@ function initialize() {
 
   new google.maps.places.Autocomplete(document.getElementById('place'), { types: ['(cities)'] });
 }
+
 
 function fromLatLngToPixels(latLng) {
   return projection.fromLatLngToContainerPixel(latLng);
@@ -171,11 +177,16 @@ function reverseGeocode(latLng, marker) {
 }
 
 function showModal(marker, place) {
+  var city = marker.title;
+  if (city.indexOf(",") < city.indexOf(" "))// for cities with spaces in between, e.g Rio de Janeiro
+    var justCity = city.substring(0,city.indexOf(","));
+  else
+    var justCity = city.substring(0,city.indexOf(" "));
   google.maps.event.addListener(marker, 'click', function() {
-    $('#myModal').modal({
+    $('#myModal'+mapIdtoCity[justCity]).modal({
       keyboard: true
     });
-    $('#myModalLabel').html(place);
+    $('#myModalLabel'+mapIdtoCity[justCity]).html(place);
   });
 }
 
